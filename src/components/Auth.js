@@ -2,15 +2,26 @@ import React, { useContext } from "react";
 import { AuthContext } from "./AuthContext";
 
 const Auth = () => {
-    const {authenticated, setAuthenticated} = useContext(AuthContext)
-  return (
-    <div>
-      <h1>Click on the checkbox to get authenticated</h1>
-      {authenticated ? <p>You are now authenticated, you can proceed</p>: <p>you are not authenticated</p>}
-      <input type="checkbox" name="auth" onClick={()=>{setAuthenticated(!authenticated)}}></input>
-      <label htmlFor="auth">I'm not a robot</label>
-    </div>
-  )
-}
+  const { isAuthenticated, toggleAuth } = useContext(AuthContext);
 
-export default Auth
+  return (
+    <div style={{ textAlign: "center", marginTop: "20px" }}>
+      <h1>Click on the checkbox to get authenticated</h1>
+      <label>
+        <input
+          type="checkbox"
+          onChange={toggleAuth}
+          checked={isAuthenticated}
+        />
+        I am not a robot
+      </label>
+      <p>
+        {isAuthenticated
+          ? "You are now authenticated, you can proceed"
+          : "You are not authenticated."}
+      </p>
+    </div>
+  );
+};
+
+export default Auth;

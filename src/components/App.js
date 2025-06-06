@@ -1,15 +1,16 @@
 
-import React, { useState } from "react";
-import './../styles/App.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { AuthProvider } from "./AuthContext";
 import Auth from "./Auth";
+import './../styles/App.css';
 
 const App = () => {
   return (
     <div>
-      <AuthProvider>
-        <Auth/>
-      </AuthProvider>
+    <AuthProvider>
+      <Auth />
+    </AuthProvider>
     </div>
   )
 }
